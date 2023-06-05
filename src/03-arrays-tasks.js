@@ -546,11 +546,13 @@ function distinct(arr) {
  *    "Poland" => ["Lodz"]
  *   }
  */
-function group(/* array, keySelector, valueSelector */) {
-  // const keyArr = array.flatMap((elem) => keySelector(elem));
-  // const valueArr = array.flatMap((elem) => valueSelector(elem));
-
-  // return valueArr;
+function group(array, keySelector, valueSelector) {
+  const myMap = new Map()
+  const callbacks = [keySelector, valueSelector];
+  return array.reduce((acc, elem) => {
+    acc[elem] = callbacks.map((cb)=> cb(elem));
+    return acc;
+  }, myMap);
 }
 
 
