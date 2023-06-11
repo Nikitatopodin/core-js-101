@@ -133,8 +133,8 @@ function isTriangle(a, b, c) {
  */
 function doRectanglesOverlap(rect1, rect2) {
   return (
-    rect1.top + rect1.height > rect2.top &&
-    rect1.left + rect1.width > rect2.left
+    rect1.top + rect1.height > rect2.top
+    && rect1.left + rect1.width > rect2.left
   );
 }
 
@@ -166,8 +166,8 @@ function doRectanglesOverlap(rect1, rect2) {
  */
 function isInsideCircle(circle, point) {
   return (
-    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 <
-    circle.radius ** 2
+    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2
+    < circle.radius ** 2
   );
 }
 
@@ -185,8 +185,8 @@ function isInsideCircle(circle, point) {
 function findFirstSingleChar(str) {
   for (let i = 0; i < str.length; i += 1) {
     if (
-      !str.slice(i + 1).includes(str[i]) &&
-      !str.slice(0, i).includes(str[i])
+      !str.slice(i + 1).includes(str[i])
+      && !str.slice(0, i).includes(str[i])
     ) {
       return str[i];
     }
@@ -291,9 +291,7 @@ function isCreditCardNumber(ccn) {
         return acc + (elem * 2 - 9);
       }
       return acc + elem * 2;
-    }, 0) %
-      10 ===
-    0
+    }, 0) % 10 === 0
   );
 }
 
